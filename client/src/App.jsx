@@ -8,7 +8,7 @@ import Home from './components/Home'
 import AboutUs from './components/AboutUs'
 import OffCampus from './components/OffCampus'
 import OnCampus from './components/OnCampus'
-
+import Footer from './components/Footer'
 function App() {
 return <>
  <BrowserRouter>
@@ -19,6 +19,7 @@ return <>
   <Route path='/offcampus' Component={OffCampus} />
   <Route path='/oncampus' Component={OnCampus} />
  </Routes>
+ <Footer></Footer>
  </BrowserRouter>
 </>
 }

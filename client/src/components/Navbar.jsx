@@ -59,11 +59,11 @@ const Navbar = () => {
           <li onClick={() => { navigate('/oncampus'); setIsClicked(false); }} className='hover:text-gray-500 md:text-lg text-center cursor-pointer font-semibold hover:underline'>On-Campus</li>
           <li onClick={() => { navigate('/offcampus'); setIsClicked(false); }} className='hover:text-gray-500 md:text-lg text-center cursor-pointer font-semibold hover:underline'>Off-Campus</li>
           <li onClick={() => { navigate('/aboutus'); setIsClicked(false); }} className='hover:text-gray-500 md:text-lg text-center cursor-pointer font-semibold hover:underline z-50'>About us</li>
-          <li onClick={() => { navigate('/aboutus'); setIsClicked(false); }} className='hover:text-gray-500 md:text-lg text-center cursor-pointer font-semibold hover:underline'>Hire</li>
+          <li onClick={() => { navigate('/hire'); setIsClicked(false); }} className='hover:text-gray-500 md:text-lg text-center cursor-pointer font-semibold hover:underline'>Hire</li>
         </ul>
       </div>
       <div className='py-1 flex gap-2 '>
-      <button onClick={() => { navigate('/signin'); }} className='bg-black text-white px-2  py-1 md:text-xl text-md rounded hover:bg-slate-800'>Register</button>
+      <button onClick={() => { navigate('/register'); }} className='bg-black text-white px-2  py-1 md:text-xl text-md rounded hover:bg-slate-800'>Register</button>
         <button onClick={() => { navigate('/signin'); }} className='bg-black text-white px-2 py-1 md:text-xl text-md rounded hover:bg-slate-800'>Signin</button>
         {isClicked ? <IoMdClose onClick={buttonClicked} className='text-3xl block cursor-pointer md:hidden' /> : <IoMdMenu onClick={buttonClicked} className='text-3xl block cursor-pointer md:hidden' />}
       </div>

@@ -79,19 +79,19 @@ const OffCampus = () => {
     <div className='bg-black z-49 text-white my-[3%]  flex flex-col text-center'>
       <div className='p-[3%]'> <h1 className='font-semibold text-2xl'>Off-Campus Jobs</h1>
       <p>Explore a wide range of job opportunities outside the campus.</p>
-      <input type="text" placeholder='Job title' className='w-2/3 mt-[2%] md:w-1/4 px-3 py-1.5 text-black rounded-md focus:outline-none focus:ring-2 focus:ring-black-200' /> <br />
-      <select className='w-2/3 md:w-1/4 px-3 py-1.5 mt-[1%] text-black rounded-md focus:outline-none focus:ring-2 focus:ring-black-500'>
+      <input type="text" placeholder='Job title' className='w-2/3 mt-[2%] mb-2 md:w-1/4 px-3 py-1.5 text-black rounded-md focus:outline-none focus:ring-2 focus:ring-black-200' /> <br />
+      <select className='w-2/3 md:w-1/4 px-3  mb-1.5 py-1.5 mt-[1%] text-black rounded-md focus:outline-none focus:ring-2 focus:ring-black-500'>
       <option value="">All locations</option>
       
       </select>
      <br />
-      <select className='w-4/3 md:w-[15%] mr-[1%] mt-[0.5%] px-3 py-1.5 text-black rounded-md focus:outline-none focus:ring-2 focus:ring-black-500'>
+      <select className='w-4/3 mb-1.5 lg:w-[9%] md-w-[12%] mr-[1%] mt-[0.5%] px-3 py-1.5 text-black rounded-md focus:outline-none focus:ring-2 focus:ring-black-500'>
       <option value="">Job Type</option>
       <option value="full-time">Full-Time</option>
       <option value="part-time">Part-Time</option>
       <option value="internship">Internship</option>
       </select>
-      <select className='w-4/3 md:w-[15%] mt-[0.5%] px-3 py-1.5 text-black rounded-md focus:outline-none focus:ring-2 focus:ring-black-500'>
+      <select className='w-4/3 md:w-[15%] mb-1.5 mt-[0.5%] px-3 py-1.5 text-black rounded-md focus:outline-none focus:ring-2 focus:ring-black-500'>
       <option value="">Branch</option>
       <option value="all-branches" selected>All Branches</option>
      

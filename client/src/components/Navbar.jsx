@@ -35,6 +35,8 @@ const Navbar = () => {
          {role=='admin'|| role=='faculty'?
          <li onClick={() => { navigate('/hire'); setIsClicked(false); }} className='hover:text-gray-500 md:text-lg text-center cursor-pointer font-semibold hover:underline'>Hire</li> : null
          }
+         {role=='admin' &&  <li onClick={() => { navigate('/add'); setIsClicked(false); }} className='hover:text-gray-500 md:text-lg text-center cursor-pointer font-semibold hover:underline z-50'>add</li>}
+         
           
         </ul>
       </div>

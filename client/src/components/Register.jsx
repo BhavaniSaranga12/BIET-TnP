@@ -25,7 +25,7 @@ const Register = () => {
   console.log(registerDetails);
   axios({
     method:'post',
-    url : 'http://localhost:3000/api/auth/register',
+    url : 'https://biet-tnp-server.vercel.app/api/auth/register',
     data: {...registerDetails,role:'student'},
   }
   ).then((response)=>{

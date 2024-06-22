@@ -21,7 +21,7 @@ const handlesubmit=(e)=>{
   console.log(signinDetails);
   axios({
     method:'post',
-    url:'http://localhost:3000/api/auth/signin',
+    url:'https://biet-tnp-server.vercel.app/api/auth/signin',
     data:signinDetails
   }).then((response)=>{
     console.log(response.data);

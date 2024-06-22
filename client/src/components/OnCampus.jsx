@@ -102,7 +102,7 @@ const OnCampus = () => {
     try {
       const response = await axios({
         method: 'get',
-        url: 'http://localhost:3000/api/user/oncampus',
+        url: 'https://biet-tnp-server.vercel.app/api/user/oncampus',
         withCredentials: true,
         headers: {
           Authorization: `Bearer ${localStorage.getItem('token')}`

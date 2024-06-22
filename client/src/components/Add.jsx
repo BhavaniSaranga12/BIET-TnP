@@ -19,7 +19,7 @@ const Add = () => {
     e.preventDefault();
     await axios({
       method:'post',
-      url:'http://localhost:3000/api/admin/add',
+      url:'https://biet-tnp-server.vercel.app/api/admin/add',
       data:{...addDetails,role:'faculty'}
       
 

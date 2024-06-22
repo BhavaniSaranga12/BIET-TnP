@@ -59,7 +59,7 @@ const Hire = () => {
    console.log({...offCampusDetails,hireType})
     axios({
     method:'post',
-    url : 'http://localhost:3000/api/hire/offcampus',
+    url : 'https://biet-tnp-server.vercel.app/api/hire/offcampus',
     data: {...offCampusDetails,hireType,batch},
     withCredentials: true,
         headers: {
@@ -90,7 +90,7 @@ const Hire = () => {
    console.log({...onCampusDetails,hireType})
     axios({
     method:'post',
-    url : 'http://localhost:3000/api/hire/oncampus',
+    url : 'https://biet-tnp-server.vercel.app/api/hire/oncampus',
     data: {...onCampusDetails,hireType,onbatch},
     withCredentials: true,
         headers: {

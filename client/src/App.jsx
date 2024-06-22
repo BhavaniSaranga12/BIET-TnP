@@ -29,7 +29,7 @@ function App() {
     async function fetch(){
         await axios({
          method:'get',
-        url: 'http://localhost:3000/validate',
+        url: 'https://biet-tnp-server.vercel.app/validate',
         withCredentials: true,
         headers: {
           Authorization: `Bearer ${localStorage.getItem('token')}`

@@ -15,7 +15,7 @@ dotenv.config();
 app.use(express.json());
 
 const corsOption = {
-  origin: ['http://localhost:5173'],
+  origin: ['https://biet-tnp-client.vercel.app'],
   credentials: true,
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
   allowedHeaders: ['Content-Type', 'Authorization'],

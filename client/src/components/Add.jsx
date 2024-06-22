@@ -1,68 +1,48 @@
-import React, { useState } from 'react'
+import React, {useState} from 'react'
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
-import axios from 'axios'
-import { useNavigate } from 'react-router-dom';
-import toast from 'react-hot-toast';
-import { useSelector,useDispatch } from 'react-redux';
-import { login } from '../slices/authSlice';
+import axios from 'axios';
 
-const Register = () => {
-  const navigate= useNavigate();
-  const  dispatch=useDispatch();
+const Add = () => {
+
 
  
 
 
-  const [registerDetails,setRegisterDetails]=useState({
+  const [addDetails,setAddDetails]=useState({
     name:'',
     email:'',
     password:''
   })
 
- function handleSubmit(e){
-  e.preventDefault();
-  console.log(registerDetails);
-  axios({
-    method:'post',
-    url : 'http://localhost:3000/api/auth/register',
-    data: {...registerDetails,role:'student'},
-  }
-  ).then((response)=>{
-    console.log(response.data);
-    if (response.status==201) {
-      toast.success(response.data.message);
-      localStorage.setItem('token',response.data.token)
-      dispatch(login({username:registerDetails.name,role:'student'}))
-      navigate('/');
-    }
-   
-    else
-    toast.error(response.data.message);
-  }).catch(error=>{
-    if(error.response.status==400)
-      toast.error(error.response.data.message);
-    else
-    toast.error('Try again later')
-    console.log(error);
-  })
- }
+  async function handleAdd(e) {
+    e.preventDefault();
+    await axios({
+      method:'post',
+      url:'http://localhost:3000/api/admin/add',
+      data:{...addDetails,role:'faculty'}
+      
 
+    }).then((response)=>{
+      console.log(response.data);
+    }).catch(error=>console.log(error));
+  }
 
   return (
+    <>
     <div className="flex justify-center items-center ">
       <div className="w-[60%] md:mt-[5%] mb-[25%] mt-[15%] md:mb-[10%] md:w-[25%] text-center">
         <div className="text-center mb-2 text-2xl font-semibold">Register</div>
         <form>
           <TextField
             label="Name"
-            value={registerDetails.name}
+            value={addDetails.name}
             variant="outlined"
             fullWidth
             margin="normal"
             onChange={
               (e)=>{
-                setRegisterDetails({...registerDetails,name:e.target.value});
+                setAddDetails({...addDetails,name:e.target.value});
               }
             }
             sx={{
@@ -92,13 +72,13 @@ const Register = () => {
           />
           <TextField
             label="Email"
-            value={registerDetails.email}
+            value={addDetails.email}
             variant="outlined"
             fullWidth
             margin="normal"
             onChange={
               (e)=>{
-                setRegisterDetails({...registerDetails,email:e.target.value});
+                setAddDetails({...addDetails,email:e.target.value});
               }
             }
             sx={{
@@ -129,13 +109,13 @@ const Register = () => {
           />
            <TextField
             label="Password"
-            value={registerDetails.password}
+            value={addDetails.password}
             variant="outlined"
             fullWidth
             margin="normal"
             onChange={
               (e)=>{
-                setRegisterDetails({...registerDetails,password:e.target.value});
+                setAddDetails({...addDetails,password:e.target.value});
               }
             }
             
@@ -170,7 +150,7 @@ const Register = () => {
             variant="contained"
             color="primary"
             fullWidth
-            onClick={handleSubmit}
+            onClick={handleAdd}
             sx={{
               backgroundColor: 'black',
               margin: 1,
@@ -184,8 +164,9 @@ const Register = () => {
         </form>
       </div>
     </div>
-  );
-};
+    
+    </>
+  )
+}
 
-export default Register;
-
+export default Add

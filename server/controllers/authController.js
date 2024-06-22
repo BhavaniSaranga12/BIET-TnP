@@ -1,18 +1,26 @@
 const User= require('../models/userModel');
 const bcrypt=require('bcrypt');
-const jwt=require('jsonwebtoken')
+const jwt=require('jsonwebtoken');
+const Faculty = require('../models/facultyModel');
 
  async function register(req, res) {
    const {name,email,password,role}=req.body;
    try {
-    const user= await User.findOne({email})
+    let user= await User.findOne({email})
     if(user){
         return res.status(400).json({message:"User already exists", status: true})
+    }
+    else if(!user){
+        user= await Faculty.findOne({email})
+        if(user){
+            return res.status(400).json({message:"User already exists", status: true})
+        }
     }
     const hashedPassword= await bcrypt.hash(password,10);
     const newUser= new User({name,email,password:hashedPassword,role});
     newUser.save();
     const payload={
+       
         id: newUser._id,
         name:newUser.name
     }
@@ -32,18 +40,21 @@ const jwt=require('jsonwebtoken')
 async function signIn(req, res) {
     const {email,password}=req.body;
  try {
-    const user=await User.findOne({email});
+    let user=await User.findOne({email});
     if(!user){
+        user=await Faculty.findOne({email});
+        if(!user)
         return res.status(400).json({message:"User doesnot exists", status: true})
     }
     const checkPassword= await bcrypt.compare(password,user.password);
 if(checkPassword){
    const payload={
+    
     name :user.name,
     id:user._id
    } 
    const token=jwt.sign(payload,process.env.JWT_SECRET,{expiresIn:'15d'});
-    return res.status(201).json({ message: 'Signin successful', status: true,token:token });
+    return res.status(201).json({ message: 'Signin successful', status: true,token:token, details:{name:user.name,role:user.role} });
       
 }  
 else

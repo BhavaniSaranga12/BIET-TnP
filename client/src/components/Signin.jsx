@@ -3,10 +3,14 @@ import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import {useNavigate} from 'react-router-dom';
 import axios from 'axios'
+import toast from 'react-hot-toast';
+import { useDispatch } from 'react-redux';
+import { login } from '../slices/authSlice';
 
 
 const Signin = () => {
   const navigate=useNavigate();
+  const dispatch=useDispatch()
   const [signinDetails, setSigninDetails]= useState({
     email:'',
     password:'',
@@ -21,10 +25,20 @@ const handlesubmit=(e)=>{
     data:signinDetails
   }).then((response)=>{
     console.log(response.data);
-    if(response.status){
+    if(response.status==201){
+      toast.success(response.data.message);
+      localStorage.setItem('token',response.data.token);
+      dispatch(login({username:response.data.details.name,role:response.data.details.role}))
       navigate('/')
     }
+   
+    else
+    toast.error(response.data.message);
   }).catch(error=>{
+    if(error.response.status==400)
+      toast.error(error.response.data.message);
+    else
+    toast.error('Try again later')
     console.log(error);
   }
 

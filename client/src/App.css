@@ -1,24 +1,4 @@
-/* Example CSS adjustments */
-nav {
-  position: relative;
-}
 
-nav .hidden {
-  display: none;
-}
-
-nav .block {
-  display: block;
-}
-
-@media (min-width: 768px) {
-  nav .absolute {
-    position: relative;
-    top: 0;
-    width: auto;
-    background: none;
-  }
-}
 
 @keyframes scroll {
     0% {

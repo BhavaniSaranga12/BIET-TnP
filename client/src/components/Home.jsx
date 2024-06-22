@@ -19,7 +19,7 @@ const Home = () => {
   const navigate=useNavigate();
   return ( <>
     <div className='relative m-[1%]'>
-      <img src={bietImage} alt="" className='w-full lg:h-[800px] filter brightness-75' />
+      <img src={bietImage} alt="" className='w-full z-99 lg:h-[800px] filter brightness-75' />
       <div className='absolute inset-0 flex items-end lg:bottom-[35%] bottom-[20%] justify-center  text-center'>
     <div>
       <h2 className='lg:text-3xl text-sm lg:font-bold lg:mb-4 mb-2.5 text-white'>Explore exciting job opportunities right here on campus!</h2>

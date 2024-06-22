@@ -24,10 +24,10 @@ const Navbar = () => {
   }
 
   return (
-    <nav className='flex  justify-between items-center mt-5 mx-5 px-3 py-2'>
+    <nav className='flex z-100 justify-between items-center mt-5 mx-5 px-3 py-2'>
       <div className='md:text-3xl text-2xl p-1 font-bold basis-1/2 md:basis-1/4 shrink'>BIET-TnP</div> 
       <div className={`absolute md:relative md:w-fit bg-white top-[10.5vh] py-6 left-0 md:top-0 w-[100vw] md:m-0 md:my-1 md:p-1 md:min-h-fit min-h-[50vh] md:block ${isClicked ? 'block' : 'hidden'}`}>
-        <ul className='flex flex-col md:flex-row gap-12 items-center'>
+        <ul className='flex flex-col z-100 md:flex-row gap-12 items-center'>
           <li onClick={() => { navigate('/'); setIsClicked(false); }} className='hover:text-gray-500 md:text-lg text-center cursor-pointer font-semibold hover:underline'>Home</li>
           <li onClick={() => { navigate('/oncampus'); setIsClicked(false); }} className='hover:text-gray-500 md:text-lg text-center cursor-pointer font-semibold hover:underline'>On-Campus</li>
           <li onClick={() => { navigate('/offcampus'); setIsClicked(false); }} className='hover:text-gray-500 md:text-lg text-center cursor-pointer font-semibold hover:underline'>Off-Campus</li>
